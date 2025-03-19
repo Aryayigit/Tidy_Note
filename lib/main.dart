@@ -26,11 +26,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tidy Note',
+      title: 'TidyNote',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(), // Ana ekranı buraya bağladık!
+      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

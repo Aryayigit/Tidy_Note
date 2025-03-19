@@ -7,22 +7,22 @@ class NoteProvider with ChangeNotifier {
 
   List<NoteModel> get notes => _notes;
 
-  /// Hive'dan Notları Yükle
+  /// Upload Notes from Hive
   void loadNotes() {
     _notes = LocalDatabase.getNotes();
     notifyListeners();
   }
 
-  /// Yeni Not Ekle
+  /// Add New Note
   Future<void> addNote(String title, String description) async {
     final newNote = NoteModel(title: title, description: description);
     await LocalDatabase.addNote(newNote);
-    loadNotes(); // Notları tekrar yükle
+    loadNotes();
   }
 
-  /// Notu Sil
+  /// Delete Note
   Future<void> deleteNote(int index) async {
     await LocalDatabase.deleteNote(index);
-    loadNotes(); // Notları tekrar yükle
+    loadNotes();
   }
 }

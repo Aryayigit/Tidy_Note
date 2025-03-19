@@ -42,7 +42,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                 if (title.isNotEmpty && description.isNotEmpty) {
                   Provider.of<NoteProvider>(context, listen: false)
                       .addNote(title, description);
-                  Navigator.pop(context); // Not eklendikten sonra geri dön
+                  Navigator.pop(context);
                 }
               },
               child: const Text("Kaydet"),

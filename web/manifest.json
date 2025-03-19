@@ -1,6 +1,6 @@
 {
-    "name": "until",
-    "short_name": "until",
+    "name": "TidyNote",
+    "short_name": "TidyNote",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
