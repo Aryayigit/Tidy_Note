@@ -26,12 +26,14 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             TextField(
               controller: _titleController,
               decoration: const InputDecoration(labelText: "Başlık"),
+              textCapitalization: TextCapitalization.sentences,
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _descriptionController,
               decoration: const InputDecoration(labelText: "Açıklama"),
               maxLines: 5,
+             textCapitalization: TextCapitalization.sentences,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
