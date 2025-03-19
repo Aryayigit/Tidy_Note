@@ -11,6 +11,7 @@ This project is a simple note-taking application built with Flutter. Users can a
 - ✅ **User-Friendly & Intuitive Design:** The interface is clean, easy to use, and follows Material Design principles.
 
 ## 📂 Project Structure
+```
 lib/
 │── main.dart
 │── models/
@@ -24,19 +25,24 @@ lib/
 │   ├── local_database.dart
 │── widgets/
 │   ├── note_card.dart
+```
 
 ## 🛠 Installation
 1. **Install Flutter** (if not already installed)
+   ```sh
    https://flutter.dev/docs/get-started/install
    ```
 2. **Clone the repository**
+   ```sh
    git clone https://github.com/yourusername/tinynote.git
    cd tinynote
    ```
 3. **Install dependencies**
+   ```sh
    flutter pub get
    ```
 4. **Run the application**
+   ```sh
    flutter run
    ```
 
@@ -47,9 +53,11 @@ lib/
 
 ## 📌 Dependencies
 - **Provider** (State management)
+  ```sh
   flutter pub add provider
   ```
 - **Hive** (Data storage)
+  ```sh
   flutter pub add hive
   flutter pub add hive_flutter
   ```
