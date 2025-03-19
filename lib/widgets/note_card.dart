@@ -37,14 +37,14 @@ class NoteCard extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pop(context); // Dialogu kapat
+                Navigator.pop(context);
               },
               child: const Text("İptal"),
             ),
             TextButton(
               onPressed: () {
                 Provider.of<NoteProvider>(context, listen: false).deleteNote(index);
-                Navigator.pop(context); // Dialogu kapat
+                Navigator.pop(context);
               },
               child: const Text("Evet", style: TextStyle(color: Colors.red)),
             ),
