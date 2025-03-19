@@ -33,24 +33,40 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
               controller: _descriptionController,
               decoration: const InputDecoration(labelText: "Açıklama"),
               maxLines: 5,
-             textCapitalization: TextCapitalization.sentences,
+              textCapitalization: TextCapitalization.sentences,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                final title = _titleController.text.trim();
-                final description = _descriptionController.text.trim();
-
-                if (title.isNotEmpty && description.isNotEmpty) {
-                  Provider.of<NoteProvider>(context, listen: false)
-                      .addNote(title, description);
-                  Navigator.pop(context);
-                }
+                _saveNote(context);
               },
               child: const Text("Kaydet"),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _saveNote(BuildContext context) {
+    final title = _titleController.text.trim();
+    final description = _descriptionController.text.trim();
+
+    if (title.isEmpty || description.isEmpty) {
+      _showErrorMessage(context);
+      return;
+    }
+
+    Provider.of<NoteProvider>(context, listen: false).addNote(title, description);
+    Navigator.pop(context);
+  }
+
+  void _showErrorMessage(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Lütfen başlık ve açıklama giriniz!"),
+        backgroundColor: Colors.grey,
+        duration: Duration(seconds: 2),
       ),
     );
   }
