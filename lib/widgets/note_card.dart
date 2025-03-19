@@ -20,10 +20,37 @@ class NoteCard extends StatelessWidget {
         trailing: IconButton(
           icon: const Icon(Icons.delete, color: Colors.red),
           onPressed: () {
-            Provider.of<NoteProvider>(context, listen: false).deleteNote(index);
+            _showDeleteConfirmationDialog(context);
           },
         ),
       ),
+    );
+  }
+
+  void _showDeleteConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Notu Sil"),
+          content: const Text("Bu notu silmek istediğinizden emin misiniz?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Dialogu kapat
+              },
+              child: const Text("İptal"),
+            ),
+            TextButton(
+              onPressed: () {
+                Provider.of<NoteProvider>(context, listen: false).deleteNote(index);
+                Navigator.pop(context); // Dialogu kapat
+              },
+              child: const Text("Evet", style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
     );
   }
 }
